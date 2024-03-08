@@ -9,7 +9,7 @@ export default async function Page() {
   const posts: PostList[] = await getPosts();
 
   return (
-    <Container className="h-[80vh]">
+    <Container className="min-h-[80vh]">
       <Posts data={posts} />
     </Container>
   );

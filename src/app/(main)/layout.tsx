@@ -6,6 +6,8 @@ import { ThemeProvider } from "@/provider/theme-provider";
 import Navbar from "@/components/nav-bar/nav-bar-main";
 import MobileNav from "@/components/nav-bar/mobile-nav";
 import Container from "@/components/shared/container";
+import { Toaster } from "@/components/ui/toaster";
+import Footer from "@/components/footer/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,8 +35,10 @@ export default function RootLayout({
             <Container className="flex items-center justify-end pt-4 md:hidden">
               <MobileNav />
             </Container>
-            {children}
             <Navbar className="absolute bottom-12 left-0 right-0 hidden md:flex" />
+            {children}
+            <Toaster />
+            <Footer />
           </main>
         </ThemeProvider>
       </body>

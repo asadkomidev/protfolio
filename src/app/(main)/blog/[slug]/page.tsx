@@ -15,7 +15,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   return (
     <Container className="min-h-[80vh]">
-      <div className="p-32 flex flex-col">
+      <div className="py-12 md:py-48 md:px-32 flex flex-col">
         <p className="text-muted-foreground border-l pl-4">
           {format(data.publishedAt, "MMMM dd, yyyy")}
         </p>

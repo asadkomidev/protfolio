@@ -9,7 +9,7 @@ export const revalidate = 20;
 export default async function Page() {
   const data: ProjectList[] = await getProjects();
   return (
-    <Container className="h-[80vh]">
+    <Container className="min-h-[80vh]">
       <Projects data={data} />
     </Container>
   );
