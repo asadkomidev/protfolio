@@ -1,10 +1,9 @@
-import { FaXTwitter } from "react-icons/fa6";
-import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import Image from "next/image";
 import { Mail } from "lucide-react";
 
 import { Heading } from "../shared/heading";
 import { ContactForm } from "./contact-form";
-import Image from "next/image";
+import { SocialIcons } from "../about/constants";
 
 const Contact = () => {
   return (
@@ -16,18 +15,12 @@ const Contact = () => {
         <div className="flex flex-col justify-between w-full py-6">
           <div className="text-muted-foreground">
             <div className="flex-flex-col">
-              <div className="flex  items-center gap-4 pb-6">
-                <FaXTwitter className="w-6 h-6" />
-                <span className="">Follow on X</span>
-              </div>
-              <div className="flex  items-center gap-4 pb-6">
-                <FaGithub className="w-6 h-6" />
-                <span className="">Follow on Github</span>
-              </div>
-              <div className="flex  items-center gap-4 pb-6">
-                <FaLinkedinIn className="w-6 h-6" />
-                <span className="">Follow on Linkedin</span>
-              </div>
+              {SocialIcons.map((item, idx) => (
+                <div className="flex  items-center gap-4 pb-6" key={idx}>
+                  <item.icon className="w-6 h-6" />
+                  <span className="">{item.name}</span>
+                </div>
+              ))}
             </div>
 
             <div className="">
@@ -38,7 +31,13 @@ const Contact = () => {
             </div>
           </div>
           <div className="w-full">
-            <Image src="/as.svg" alt="signature" width={100} height={50} className="-rotate-12"/>
+            <Image
+              src="/as.svg"
+              alt="signature"
+              width={100}
+              height={50}
+              className="-rotate-12"
+            />
           </div>
         </div>
         <div className="w-full">

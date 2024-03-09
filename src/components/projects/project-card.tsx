@@ -6,6 +6,7 @@ import { LinkIcon, ExternalLink } from "lucide-react";
 
 import { ProjectList } from "@/types/project";
 import { Badge } from "../ui/badge";
+import { Card } from "../ui/card";
 
 type Props = {
   project: ProjectList;
@@ -13,7 +14,7 @@ type Props = {
 
 export function ProjectCard({ project }: Props) {
   return (
-    <div className="border shadow-sm rounded-lg flex flex-col items-start max-w-sm  p-4 relative h-[20rem]">
+    <Card className="flex flex-col items-start p-4 relative">
       <EvervaultCard text="hover" />
 
       <h1 className="text-base font-medium pt-4">{project.name}</h1>
@@ -40,6 +41,6 @@ export function ProjectCard({ project }: Props) {
           </div>
         ))}
       </div>
-    </div>
+    </Card>
   );
 }
