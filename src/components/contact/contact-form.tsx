@@ -18,6 +18,7 @@ import { Textarea } from "../ui/textarea";
 import { toast } from "../ui/use-toast";
 import { Button } from "../ui/button";
 import { contactSchema } from "@/schemas/contact-schema";
+import { createContact } from "@/actions/contact";
 
 type ContactFormValues = z.infer<typeof contactSchema>;
 
@@ -27,16 +28,30 @@ export function ContactForm() {
     mode: "onChange",
   });
 
-  function onSubmit(data: ContactFormValues) {
+ async function onSubmit(data: ContactFormValues) {
+
+  try {
+    await createContact(data);
+
     toast({
       title: "Thanks for reaching out!",
       description: "I'll get back to you as soon as possible.",
     });
+  } catch (error) {
+    toast({
+      title: "Error sending message!",
+      description: "Please try again later.",
+      variant: "destructive",
+    });
+  } finally {
+    
     form.reset({
       fullname: "",
       email: "",
       message: "",
     });
+
+  }
   }
 
   return (

@@ -9,7 +9,7 @@ const About = () => {
   return (
     <div className="flex flex-col md:flex-row py-12 md:py-48 gap-8">
       <div className="w-full">
-        <div className="flex flex-col gap-y-12">
+        <div className="flex flex-col gap-y-12  h-full">
           <div className="">
             <Image
               src="/me.png"
@@ -19,29 +19,34 @@ const About = () => {
               className="rounded-lg"
             />
           </div>
+          <div className="flex flex-col justify-between w-full py-6">
           <div className="text-muted-foreground">
             <div className="flex-flex-col">
-              <div className="flex  items-center gap-4 pb-4">
+              <div className="flex  items-center gap-4 pb-6">
                 <FaXTwitter className="w-6 h-6" />
                 <span className="">Follow on X</span>
               </div>
-              <div className="flex  items-center gap-4 pb-4">
+              <div className="flex  items-center gap-4 pb-6">
                 <FaGithub className="w-6 h-6" />
                 <span className="">Follow on Github</span>
               </div>
-              <div className="flex  items-center gap-4 pb-4">
+              <div className="flex  items-center gap-4 pb-6">
                 <FaLinkedinIn className="w-6 h-6" />
                 <span className="">Follow on Linkedin</span>
               </div>
             </div>
-            <Separator />
-            <div className="py-12">
+
+            <div className="">
               <div className="flex  items-center gap-4 pb-4">
                 <Mail className="w-6 h-6" />
                 <span className="">asadkomi@outlook.com</span>
               </div>
             </div>
           </div>
+          <div className="w-full pt-12 md:pt-24">
+            <Image src="/as.svg" alt="signature" width={100} height={50} className="-rotate-12"/>
+          </div>
+        </div>
         </div>
       </div>
       <div className="w-full">

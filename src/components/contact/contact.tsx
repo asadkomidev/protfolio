@@ -4,6 +4,7 @@ import { Mail } from "lucide-react";
 
 import { Heading } from "../shared/heading";
 import { ContactForm } from "./contact-form";
+import Image from "next/image";
 
 const Contact = () => {
   return (
@@ -12,7 +13,7 @@ const Contact = () => {
       intro="I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
     >
       <div className="flex flex-col md:flex-row gap-8 ">
-        <div className="w-full py-6">
+        <div className="flex flex-col justify-between w-full py-6">
           <div className="text-muted-foreground">
             <div className="flex-flex-col">
               <div className="flex  items-center gap-4 pb-6">
@@ -35,6 +36,9 @@ const Contact = () => {
                 <span className="">asadkomi@outlook.com</span>
               </div>
             </div>
+          </div>
+          <div className="w-full">
+            <Image src="/as.svg" alt="signature" width={100} height={50} className="-rotate-12"/>
           </div>
         </div>
         <div className="w-full">
