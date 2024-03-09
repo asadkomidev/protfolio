@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import React, { useEffect, useState } from "react";
 
-export const TechLogos = ({
+export const InfiniteDisplayLogos = ({
   items,
   direction = "left",
   speed = "fast",

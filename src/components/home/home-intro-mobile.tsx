@@ -1,27 +1,27 @@
 "use client";
 
-import Navbar from "../nav-bar/nav-bar";
+import { homeContent } from "@/content/home-content";
+import HomePageNavbar from "../nav-bar/home-page-navbar";
 import { Badge } from "../ui/badge";
-import { TextGenerateEffect } from "./typing";
+import { TextTypingCard } from "./text-typing-card";
 
 const words = `Innovative Solutions, Exceptional Code`;
 
-export function TypeWriter() {
+export function HomeIntroMobile() {
   return (
     <div className="flex flex-col items-center md:hidden pb-12 px-4">
       <div className="text-center">
         <Badge variant="secondary" className="text-md font-normal mb-2">
-          <span className="pr-2">👋🏾 Hi,</span>
-          <span className="">I'm Asad</span>
+          <span className="pr-2">{homeContent.badge}</span>
+          <span className="">{homeContent.label}</span>
         </Badge>
         <p className="text-muted-foreground text-sm">
-          Dedicated to transforming complex challenges into elegant software
-          solutions. Expert in diverse technologies, driven by innovation.
+          {homeContent.description}
         </p>
       </div>
-      <TextGenerateEffect words={words} />
+      <TextTypingCard words={homeContent.toReveal} />
       <div className="flex pt-24">
-        <Navbar />
+        <HomePageNavbar />
       </div>
     </div>
   );

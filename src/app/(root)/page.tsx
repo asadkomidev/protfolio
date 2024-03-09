@@ -1,11 +1,11 @@
 import { HomeIntro } from "@/components/home/home-into";
-import { TypeWriter } from "@/components/home/type-writer";
+import { HomeIntroMobile } from "@/components/home/home-intro-mobile";
 
 export default function Home() {
   return (
     <main className="flex h-screen flex-col items-center justify-center">
       <HomeIntro />
-      <TypeWriter />
+      <HomeIntroMobile />
     </main>
   );
 }

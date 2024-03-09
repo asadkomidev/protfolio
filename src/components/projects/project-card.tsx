@@ -1,6 +1,6 @@
 "use client";
 
-import { EvervaultCard } from "./evervault-card";
+import { HoverEffect } from "./hover-effect";
 import Link from "next/link";
 import { LinkIcon, ExternalLink } from "lucide-react";
 
@@ -15,7 +15,7 @@ type Props = {
 export function ProjectCard({ project }: Props) {
   return (
     <Card className="flex flex-col items-start p-4 relative">
-      <EvervaultCard text="hover" />
+      <HoverEffect text="hover" />
 
       <h1 className="text-base font-medium pt-4">{project.name}</h1>
       <h2 className="text-sm text-muted-foreground pt-1">

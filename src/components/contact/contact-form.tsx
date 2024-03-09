@@ -4,6 +4,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
+import { contactSchema } from "@/schemas/contact-schema";
+import { sendEmail } from "@/actions/contact";
+
 import {
   Form,
   FormControl,
@@ -13,12 +16,10 @@ import {
   FormMessage,
 } from "../ui/form";
 import { Input } from "../ui/input";
-
 import { Textarea } from "../ui/textarea";
 import { toast } from "../ui/use-toast";
 import { Button } from "../ui/button";
-import { contactSchema } from "@/schemas/contact-schema";
-import { createContact } from "@/actions/contact";
+
 
 type ContactFormValues = z.infer<typeof contactSchema>;
 
@@ -28,30 +29,34 @@ export function ContactForm() {
     mode: "onChange",
   });
 
- async function onSubmit(data: ContactFormValues) {
-
-  try {
-    await createContact(data);
-
-    toast({
-      title: "Thanks for reaching out!",
-      description: "I'll get back to you as soon as possible.",
-    });
-  } catch (error) {
-    toast({
-      title: "Error sending message!",
-      description: "Please try again later.",
-      variant: "destructive",
-    });
-  } finally {
-    
-    form.reset({
-      fullname: "",
-      email: "",
-      message: "",
-    });
-
-  }
+  async function onSubmit(data: ContactFormValues) {
+    try {
+      const result = await sendEmail(data);
+      if (result?.success) {
+        toast({
+          title: "Thanks for reaching out!",
+          description: "I'll get back to you as soon as possible.",
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: "Email has been not delivered. Something went wrong.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Error sending message!",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      form.reset({
+        fullname: "",
+        email: "",
+        message: "",
+      });
+    }
   }
 
   return (

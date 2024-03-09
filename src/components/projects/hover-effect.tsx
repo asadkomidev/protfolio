@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useMotionTemplate, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-export const EvervaultCard = ({
+export const HoverEffect = ({
   text,
   className,
 }: {
@@ -41,7 +41,7 @@ export const EvervaultCard = ({
         onMouseMove={onMouseMove}
         className="group/card rounded-lg w-full relative overflow-hidden bg-transparent flex items-center justify-center h-full"
       >
-        <CardPattern
+        <HoverPattern
           mouseX={mouseX}
           mouseY={mouseY}
           randomString={randomString}
@@ -52,7 +52,7 @@ export const EvervaultCard = ({
   );
 };
 
-export function CardPattern({ mouseX, mouseY, randomString }: any) {
+export function HoverPattern({ mouseX, mouseY, randomString }: any) {
   let maskImage = useMotionTemplate`radial-gradient(250px at ${mouseX}px ${mouseY}px, white, transparent)`;
   let style = { maskImage, WebkitMaskImage: maskImage };
 

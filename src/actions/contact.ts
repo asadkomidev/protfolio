@@ -1,25 +1,33 @@
-import { revalidatePath } from "next/cache";
-import { client } from "../../sanity/lib/client";
-import { groq } from "next-sanity";
-import { ContactList } from "@/types/contact";
+"use server";
 
-export async function createContact(contact:ContactList) {
+import { z } from "zod";
+import { Resend } from "resend";
 
-    const currentDate = new Date().toISOString();
-  const { fullname, email, message } = contact;
-    const data = {
-      _type: 'contact',
-      fullname,
-      email,
-      message,
-      createdAt: currentDate,
-    };
-  
-    // Use the client to create a new document in the 'contact' collection
-    const response = await client.create(data).catch((error) => {
-      console.error('Error creating contact:', error.message);
-      throw new Error('Failed to create contact');
-    });
-  
-    return response;
+import { contactSchema } from "@/schemas/contact-schema";
+import { ContactEmail } from "@/components/contact/email-template";
+
+type ContactFormInputs = z.infer<typeof contactSchema>;
+const resend = new Resend(process.env.RESEND_API_KEY);
+
+export async function sendEmail(data: ContactFormInputs) {
+  const result = contactSchema.safeParse(data);
+
+  if (result.success) {
+    const { fullname, email, message } = result.data;
+    try {
+      const data = await resend.emails.send({
+        from: "Portfolio <onboarding@resend.dev>",
+        to: "asadkomi.dev@gmail.com",
+        subject: "Message from Portfolio",
+        react: ContactEmail({ fullname, email, message }),
+      });
+      return { success: true, data };
+    } catch (error) {
+      return { success: false, error };
+    }
   }
+
+  if (result.error) {
+    return { success: false, error: result.error.format() };
+  }
+}

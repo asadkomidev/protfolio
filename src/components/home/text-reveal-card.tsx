@@ -80,14 +80,7 @@ export const TextRevealCard = ({
           transition={isMouseOver ? { duration: 0 } : { duration: 0.4 }}
           className="absolute  z-20 will-change-transform"
         >
-          <p
-            style={
-              {
-                // textShadow: "4px 4px 15px rgba(0,0,0,0.5)",
-              }
-            }
-            className="text-base sm:text-[3rem] py-10 leading-10 font-bold mr-4  bg-clip-text"
-          >
+          <p className="text-base sm:text-[3rem] py-10 leading-10 font-bold mr-4  bg-clip-text">
             {revealText}
           </p>
         </motion.div>
@@ -105,7 +98,6 @@ export const TextRevealCard = ({
           <p className="text-base sm:text-[3rem] py-10 font-bold bg-clip-text text-transparent ">
             {text}
           </p>
-          {/* <MemoizedStars /> */}
         </div>
       </div>
     </div>
@@ -136,41 +128,3 @@ export const TextRevealCardDescription = ({
   );
 };
 
-const Stars = () => {
-  const randomMove = () => Math.random() * 4 - 2;
-  const randomOpacity = () => Math.random();
-  const random = () => Math.random();
-  return (
-    <div className="absolute inset-0">
-      {[...Array(140)].map((_, i) => (
-        <motion.span
-          key={`star-${i}`}
-          animate={{
-            top: `calc(${random() * 100}% + ${randomMove()}px)`,
-            left: `calc(${random() * 100}% + ${randomMove()}px)`,
-            opacity: randomOpacity(),
-            scale: [1, 1.2, 0],
-          }}
-          transition={{
-            duration: random() * 10 + 20,
-            repeat: Infinity,
-            ease: "linear",
-          }}
-          style={{
-            position: "absolute",
-            top: `${random() * 100}%`,
-            left: `${random() * 100}%`,
-            width: `2px`,
-            height: `2px`,
-            backgroundColor: "white",
-            borderRadius: "50%",
-            zIndex: 1,
-          }}
-          className="inline-block"
-        ></motion.span>
-      ))}
-    </div>
-  );
-};
-
-export const MemoizedStars = memo(Stars);

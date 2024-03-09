@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { Mail } from "lucide-react";
 
-import { InfiniteTechLogo } from "./tech-stacks";
-import { AboutMe, SocialIcons } from "./constants";
+import { aboutContent, socialIcons } from "@/content/about-content";
+import { InfiniteDisplayContainer } from "./infinite-display-container";
 
 const About = () => {
   return (
@@ -12,6 +12,7 @@ const About = () => {
           <div className="flex flex-col gap-y-12  h-full">
             <div className="">
               <Image
+                priority
                 src="/me.png"
                 alt="hero"
                 width={500}
@@ -22,7 +23,7 @@ const About = () => {
             <div className="flex flex-col justify-between w-full py-6">
               <div className="text-muted-foreground">
                 <div className="flex-flex-col">
-                  {SocialIcons.map((item, idx) => (
+                  {socialIcons.map((item, idx) => (
                     <div className="flex  items-center gap-4 pb-6" key={idx}>
                       <item.icon className="w-6 h-6" />
                       <span className="">{item.name}</span>
@@ -39,6 +40,7 @@ const About = () => {
               </div>
               <div className="w-full pt-12 md:pt-24">
                 <Image
+                  priority
                   src="/as.svg"
                   alt="signature"
                   width={100}
@@ -51,11 +53,13 @@ const About = () => {
         </div>
         <div className="w-full">
           <div className="lg:order-first lg:row-span-2">
-            <h1 className="text-3xl font-bold  sm:text-4xl">{AboutMe.title}</h1>
+            <h1 className="text-3xl font-bold  sm:text-4xl">
+              {aboutContent.title}
+            </h1>
             <div className="prose pb-12 prose-headings:dark:text-white prose-p:dark:text-muted-foreground prose-li:dark:text-muted-foreground prose-a:dark:text-muted-foreground prose-strong:dark:text-muted-foreground prose-blockquote:dark:text-muted-foreground ">
               <div className="mt-6 space-y-7 text-muted-foreground">
                 <div
-                  dangerouslySetInnerHTML={{ __html: AboutMe.description }}
+                  dangerouslySetInnerHTML={{ __html: aboutContent.description }}
                 />
               </div>
             </div>
@@ -63,7 +67,7 @@ const About = () => {
         </div>
       </div>
       <div className="flex items-center gap-6 py-12">
-        <InfiniteTechLogo />
+        <InfiniteDisplayContainer />
       </div>
     </>
   );

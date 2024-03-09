@@ -4,6 +4,7 @@ import { Menu } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 
+import { navigationLinks } from "@/content/home-content";
 import {
   Sheet,
   SheetContent,
@@ -12,11 +13,10 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { NavLinks } from "./constants";
 
 import { ModeToggle } from "../home/mode-toggle";
 
-const MobileNav = () => {
+const MobileNavbar = () => {
   const [open, setOpen] = useState(false);
 
   const onChange = () => {
@@ -40,7 +40,7 @@ const MobileNav = () => {
               >
                 Home
               </Link>
-              {NavLinks.map((item, i) => (
+              {navigationLinks.map((item, i) => (
                 <Link
                   onClick={() => setOpen(false)}
                   key={i}
@@ -65,4 +65,4 @@ const MobileNav = () => {
   );
 };
 
-export default MobileNav;
+export default MobileNavbar;

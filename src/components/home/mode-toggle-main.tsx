@@ -4,7 +4,7 @@ import * as React from "react";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
-export function ModeToggle() {
+export function ModeToggleMain() {
   const { resolvedTheme, setTheme } = useTheme();
   let [mounted, setMounted] = React.useState(false);
   let otherTheme = resolvedTheme === "dark" ? "light" : "dark";

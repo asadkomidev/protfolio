@@ -5,29 +5,29 @@ import {
   TextRevealCardDescription,
   TextRevealCardTitle,
 } from "./text-reveal-card";
-import Navbar from "../nav-bar/nav-bar";
+import HomePageNavbar from "../nav-bar/home-page-navbar";
 import { Badge } from "../ui/badge";
+import { homeContent } from "@/content/home-content";
 
 export function HomeIntro() {
   return (
     <div className="flex-col items-center hidden md:flex">
       <TextRevealCard
-        text="Innovative Solutions,"
-        revealText="Innovative Solutions, Exceptional Code"
+        text={homeContent.text}
+        revealText={homeContent.toReveal}
       >
         <TextRevealCardTitle className="">
           <Badge variant="secondary" className="text-md font-normal mb-2">
-            <span className="pr-2">👋🏾 Hi,</span>
-            <span className="">I'm Asad</span>
+            <span className="pr-2">{homeContent.badge}</span>
+            <span className="">{homeContent.label}</span>
           </Badge>
         </TextRevealCardTitle>
         <TextRevealCardDescription className="">
-          Dedicated to transforming complex challenges into elegant software
-          solutions. Expert in diverse technologies, driven by innovation.
+         {homeContent.description}
         </TextRevealCardDescription>
       </TextRevealCard>
       <div className="hidden md:flex">
-        <Navbar />
+        <HomePageNavbar />
       </div>
     </div>
   );

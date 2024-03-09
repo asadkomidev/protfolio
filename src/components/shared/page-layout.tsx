@@ -1,6 +1,6 @@
 import Container from "./container";
 
-export function Heading({
+export function PageLayout({
   title,
   intro,
   children,
