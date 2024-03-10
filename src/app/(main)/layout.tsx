@@ -1,14 +1,16 @@
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
-import "../globals.css";
 import { ThemeProvider } from "@/provider/theme-provider";
 import MainNavbar from "@/components/nav-bar/main-navbar";
 import MobileNavbar from "@/components/nav-bar/mobile-navbar";
 import Container from "@/components/shared/container";
 import { Toaster } from "@/components/ui/toaster";
 import Footer from "@/components/footer/footer";
+
+import "../globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -39,6 +41,7 @@ export default function RootLayout({
             <MainNavbar className="absolute bottom-12 left-0 right-0 hidden md:flex" />
             {children}
             <Analytics />
+            <SpeedInsights />
             <Toaster />
             <Footer />
           </main>

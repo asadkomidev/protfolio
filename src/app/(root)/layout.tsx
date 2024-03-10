@@ -1,5 +1,5 @@
-
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
@@ -11,7 +11,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Asad Komi - Portfolio",
-  description: "Dedicated to transforming complex challenges into elegant software solutions. Expert in diverse technologies, driven by innovation.",
+  description:
+    "Dedicated to transforming complex challenges into elegant software solutions. Expert in diverse technologies, driven by innovation.",
 };
 
 export default function RootLayout({
@@ -28,8 +29,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main>{children}
-          <Analytics/>
+          <main>
+            {children}
+            <Analytics />
+            <SpeedInsights />
           </main>
         </ThemeProvider>
       </body>

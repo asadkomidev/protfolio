@@ -10,16 +10,18 @@ import Link from "next/link";
 
 const Contact = () => {
   return (
-    <PageLayout
-      title={contactContent.title}
-      intro={contactContent.intro}
-    >
+    <PageLayout title={contactContent.title} intro={contactContent.intro}>
       <div className="flex flex-col md:flex-row gap-8 ">
         <div className="flex flex-col justify-between w-full py-6">
           <div className="text-muted-foreground">
             <div className="flex-flex-col">
               {socialIcons.map((item, idx) => (
-                <Link target="_blank" href={item.link} className="flex  items-center gap-4 pb-6" key={idx}>
+                <Link
+                  target="_blank"
+                  href={item.link}
+                  className="flex  items-center gap-4 pb-6"
+                  key={idx}
+                >
                   <item.icon className="w-6 h-6" />
                   <span className="">{item.name}</span>
                 </Link>
