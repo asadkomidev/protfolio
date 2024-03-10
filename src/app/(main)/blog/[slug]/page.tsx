@@ -17,10 +17,10 @@ export default async function Page({ params }: { params: { slug: string } }) {
   return (
     <Container className="min-h-[80vh]">
       <div className="py-12 md:py-48 md:px-32 flex flex-col">
-        <p className="text-muted-foreground border-l pl-4">
+        <p className="text-muted-foreground border-l dark:border-white pl-4">
           {format(data.publishedAt, "MMMM dd, yyyy")}
         </p>
-        <h1 className="text-5xl font-bold pt-6 ">{data.title}</h1>
+        <h1 className="text-3xl md:text-5xl font-bold pt-6 ">{data.title}</h1>
         <p className="py-8 text-muted-foreground">{data.desc}</p>
         <Image
           priority
