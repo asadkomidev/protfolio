@@ -31,6 +31,7 @@ export default defineType({
         { title: "H3", value: "h3" },
         { title: "H4", value: "h4" },
         { title: "Quote", value: "blockquote" },
+      
       ],
       lists: [{ title: "Bullet", value: "bullet" }],
       // Marks let you mark up inline text in the Portable Text Editor
@@ -58,6 +59,7 @@ export default defineType({
         ],
       },
     }),
+    
     // You can add additional types here. Note that you can't use
     // primitive types such as 'string' and 'number' in the same array
     // as a block type.
@@ -72,5 +74,20 @@ export default defineType({
         },
       ],
     }),
+
+    defineArrayMember({
+      type: "code",
+      options: {
+        language: 'javascript',
+        languageAlternatives: [
+          {title: 'Typescript', value: 'typescript'},
+          {title: 'Javascript', value: 'javascript'},
+          {title: 'HTML', value: 'html'},
+          {title: 'CSS', value: 'css'},
+        ],
+        withFilename: true,
+      },
+    }),
+
   ],
 });

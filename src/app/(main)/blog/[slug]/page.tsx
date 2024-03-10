@@ -7,6 +7,7 @@ import { PostList } from "@/types/post";
 import Container from "@/components/shared/container";
 
 import { urlForImage } from "../../../../../sanity/lib/image";
+import { components } from "@/components/blog/render/render-component";
 
 export const revalidate = 20;
 
@@ -31,7 +32,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
         />
         <div className="py-12">
           <div className="prose pb-12 prose-headings:dark:text-white prose-p:dark:text-muted-foreground prose-li:dark:text-muted-foreground prose-a:dark:text-muted-foreground prose-strong:dark:text-muted-foreground prose-blockquote:dark:text-muted-foreground ">
-            <PortableText value={data.body} />
+            {/* @ts-ignore */}
+            <PortableText value={data.body} components={components} />
           </div>
         </div>
       </div>

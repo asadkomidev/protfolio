@@ -1,4 +1,4 @@
 export const contactContent = {
-    title: "Things I’ve made trying to put my dent in the universe.",
-    intro: "I’ve worked on tons of little projects over the years but these are the ones that I’m most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas for how it can be improved."
+    title: "Get in touch - Your next project awaits",
+    intro: "Ready to take your project to the next level? This is your starting point for collaboration and innovation. Whether you need software development expertise or want to discuss tech trends and ideas, I'm here to help."
 }
