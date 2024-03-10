@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 }
 
-export const revalidate = 20;
+export const revalidate = 0;
 
 export default async function Page() {
   const data: ProjectList[] = await getProjects();

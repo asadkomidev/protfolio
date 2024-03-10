@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: "Gain valuable insights from Asad Komi's blog, featuring tutorials, deep dives into .NET, React, Next.js, and discussions on the latest in web development.",
 };
 
-export const revalidate = 20;
+export const revalidate = 0;
 
 export default async function Page() {
   const posts: PostList[] = await getPosts();

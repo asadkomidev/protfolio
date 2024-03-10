@@ -32,7 +32,7 @@ const ShareButtons = ({ url, quote }: Props) => {
           <TooltipTrigger asChild>
             <DropdownMenuTrigger asChild>
               <Button size={"icon"} variant="ghost">
-                <Share2 strokeWidth={1} />
+                <Share2 strokeWidth={1} className="w-5 h-5" />
               </Button>
             </DropdownMenuTrigger>
           </TooltipTrigger>
@@ -41,7 +41,6 @@ const ShareButtons = ({ url, quote }: Props) => {
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
-
       <DropdownMenuContent align="end">
         <DropdownMenuItem>
           <CopyLink url={url} />
