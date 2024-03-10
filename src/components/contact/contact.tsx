@@ -6,6 +6,7 @@ import { contactContent } from "@/content/contact-content";
 
 import { PageLayout } from "../shared/page-layout";
 import { ContactForm } from "./contact-form";
+import Link from "next/link";
 
 const Contact = () => {
   return (
@@ -18,10 +19,10 @@ const Contact = () => {
           <div className="text-muted-foreground">
             <div className="flex-flex-col">
               {socialIcons.map((item, idx) => (
-                <div className="flex  items-center gap-4 pb-6" key={idx}>
+                <Link target="_blank" href={item.link} className="flex  items-center gap-4 pb-6" key={idx}>
                   <item.icon className="w-6 h-6" />
                   <span className="">{item.name}</span>
-                </div>
+                </Link>
               ))}
             </div>
 
@@ -32,7 +33,7 @@ const Contact = () => {
               </div>
             </div>
           </div>
-          <div className="w-full">
+          <div className="w-full py-24">
             <Image
               priority
               src="/as.svg"

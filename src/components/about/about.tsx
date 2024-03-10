@@ -3,6 +3,7 @@ import { Mail } from "lucide-react";
 
 import { aboutContent, socialIcons } from "@/content/about-content";
 import { InfiniteDisplayContainer } from "./infinite-display-container";
+import Link from "next/link";
 
 const About = () => {
   return (
@@ -24,10 +25,10 @@ const About = () => {
               <div className="text-muted-foreground">
                 <div className="flex-flex-col">
                   {socialIcons.map((item, idx) => (
-                    <div className="flex  items-center gap-4 pb-6" key={idx}>
+                    <Link target="_blank" href={item.link} className="flex  items-center gap-4 pb-6" key={idx}>
                       <item.icon className="w-6 h-6" />
                       <span className="">{item.name}</span>
-                    </div>
+                    </Link>
                   ))}
                 </div>
 
@@ -38,7 +39,7 @@ const About = () => {
                   </div>
                 </div>
               </div>
-              <div className="w-full pt-12 md:pt-24">
+              <div className="w-full py-24">
                 <Image
                   priority
                   src="/as.svg"

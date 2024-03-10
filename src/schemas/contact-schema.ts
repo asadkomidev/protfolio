@@ -14,5 +14,5 @@ export const contactSchema = z.object({
         required_error: "Please provide an email.",
       })
       .email(),
-    message: z.string().max(160).min(4),
+    message: z.string().min(4),
   })

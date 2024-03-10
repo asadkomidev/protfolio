@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react';
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
@@ -37,6 +38,7 @@ export default function RootLayout({
             </Container>
             <MainNavbar className="absolute bottom-12 left-0 right-0 hidden md:flex" />
             {children}
+            <Analytics />
             <Toaster />
             <Footer />
           </main>
