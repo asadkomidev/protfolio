@@ -8,7 +8,7 @@ import Container from "@/components/shared/container";
 export const metadata: Metadata = {
   title: "Projects - Showcasing Full-Stack Development Expertise in .NET, Next.js, and Beyond",
   description:
-    "Dive into Asad Komi's portfolio of diverse projects, demonstrating skills in .NET, React, Next.js, and full-stack development for modern web applications.",
+    "Dive into my portfolio of diverse projects, demonstrating skills in .NET, React, Next.js, and full-stack development for modern web applications.",
 
 }
 
